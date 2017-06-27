@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }   from './app.component';
+import { HttpModule } from '@angular/http';
 
 import { routing } from './app.routing';
 
@@ -10,7 +11,7 @@ import { UsersComponent } from './users/users.component';
 import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
-  imports:      [ BrowserModule, routing ],
+  imports:      [ BrowserModule, HttpModule, routing ],
   declarations: [ AppComponent, NavbarComponent, HomeComponent, UsersComponent, PostsComponent ],
   bootstrap:    [ AppComponent ],
   providers:    [ ]
