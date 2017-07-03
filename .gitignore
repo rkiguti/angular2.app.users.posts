@@ -34,14 +34,8 @@ testem.log
 # app
 /app/*.js
 /app/*.map
-/app/home/*.js
-/app/home/*.map
-/app/posts/*.js
-/app/posts/*.map
-/app/shared/*.js
-/app/shared/*.map
-/app/users/*.js
-/app/users/*.map
+/app/**/*.js
+/app/**/*.map
 
 # System Files
 .DS_Store
