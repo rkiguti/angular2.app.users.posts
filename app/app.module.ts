@@ -5,14 +5,25 @@ import { HttpModule } from '@angular/http';
 
 import { routing } from './app.routing';
 
+import { UsersModule } from './users/users.module';
+
 import { NavbarComponent } from './shared/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { UsersComponent } from './users/users.component';
 import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
-  imports:      [ BrowserModule, HttpModule, routing ],
-  declarations: [ AppComponent, NavbarComponent, HomeComponent, UsersComponent, PostsComponent ],
+  imports:      [ 
+    BrowserModule, 
+    HttpModule,
+    UsersModule,
+    routing 
+  ],
+  declarations: [ 
+    AppComponent, 
+    NavbarComponent,
+    HomeComponent, 
+    PostsComponent 
+  ],
   bootstrap:    [ AppComponent ],
   providers:    [ ]
 })

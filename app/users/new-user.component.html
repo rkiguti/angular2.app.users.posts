@@ -1,0 +1,47 @@
+<h1>Add a User</h1>
+<div class="row">
+    <div class="col-md-6 col-lg-6 well">
+        <form [formGroup]="newUserForm">
+            <fieldset>
+                <legend>User</legend>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" class="form-control" formControlName="name">
+                    <div *ngIf="newUserForm.controls.name.touched && newUserForm.controls.name.errors">
+                        <div *ngIf="newUserForm.controls.name.errors.required" class="alert alert-danger">
+                            Name is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" class="form-control" formControlName="email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" name="phone" id="phone" class="form-control" formControlName="phone">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Address</legend>
+                <div class="form-group">
+                    <label for="street">Street</label>
+                    <input type="text" name="street" id="street" class="form-control" formControlName="street">
+                </div>
+                <div class="form-group">
+                    <label for="suite">Suite</label>
+                    <input type="text" name="suite" id="suite" class="form-control" formControlName="suite">
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" name="city" id="city" class="form-control" formControlName="city">
+                </div>
+                <div class="form-group">
+                    <label for="zipCode">ZipCode</label>
+                    <input type="text" name="zipCode" id="zipCode" class="form-control" formControlName="zipCode">
+                </div>
+            </fieldset>
+            <button type="submit" class="btn btn-primary" [disabled]="!newUserForm.valid">Save</button>
+        </form>
+    </div>
+</div>

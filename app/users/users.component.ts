@@ -4,9 +4,9 @@ import { UsersService } from './users.service';
 @Component({
     template: `
         <h1>Users</h1>
-        <button type="button" class="btn btn-primary" aria-label="Add User">
+        <a class="btn btn-primary" aria-label="Add User" routerLink="/users/new">
             Add User
-        </button>
+        </a>
         <i *ngIf="isLoading" class="fa fa-spinner fa-spin fa-3x"></i>
         <table class="table table-bordered" *ngIf="!isLoading">
             <tr>
