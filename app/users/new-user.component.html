@@ -16,6 +16,9 @@
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="text" name="email" id="email" class="form-control" formControlName="email">
+                    <div *ngIf="newUserForm.controls.email.touched && newUserForm.controls.email.errors" class="alert alert-danger">
+                        Please type a valid email.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone</label>
