@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 
 import { UsersModule } from './users/users.module';
+import { PreventUnsavedChangesGuard } from './shared/prevent-unsaved-changes-guard.service';
 
 import { NavbarComponent } from './shared/navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -25,6 +26,6 @@ import { PostsComponent } from './posts/posts.component';
     PostsComponent 
   ],
   bootstrap:    [ AppComponent ],
-  providers:    [ ]
+  providers:    [ PreventUnsavedChangesGuard ]
 })
 export class AppModule { }

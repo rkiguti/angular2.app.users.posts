@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 
+import { FormComponent } from '../shared/form-component.interface';
 import { EmailValidators } from '../shared/emailValidators';
 
 @Component({
@@ -11,7 +12,7 @@ import { EmailValidators } from '../shared/emailValidators';
         }
     `]
 })
-export class NewUserComponent {
+export class NewUserComponent implements FormComponent {
 
     newUserForm: FormGroup;
 
@@ -25,5 +26,9 @@ export class NewUserComponent {
             city: [''],
             zipCode: ['']
         });
+    }
+
+     hasUnsavedChanges() {
+        return this.newUserForm.dirty;
     }
 }
