@@ -1,39 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from './users.service';
+import { UserService } from './user.service';
 
 @Component({
-    template: `
-        <h1>Users</h1>
-        <a class="btn btn-primary" aria-label="Add User" routerLink="/users/new">
-            Add User
-        </a>
-        <i *ngIf="isLoading" class="fa fa-spinner fa-spin fa-3x"></i>
-        <table class="table table-bordered" *ngIf="!isLoading">
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-            <tr *ngFor="let user of users">
-                <td>{{ user.name }}</td>
-                <td>{{ user.email }}</td>
-                <td><i class="glyphicon glyphicon-edit"></i></td>
-                <td><i class="glyphicon glyphicon-remove"></i></td>
-            </tr>
-        </table>
-    `,
-    providers: [ UsersService ]
+    templateUrl: 'app/users/users.component.html',
+    providers: [ UserService ]
 })
 export class UsersComponent implements OnInit {
     isLoading = true;
     users = [];
 
-    constructor (private _usersService: UsersService) {
+    constructor (private _userService: UserService) {
     }
 
     ngOnInit() {
-        this._usersService
+        this._userService
             .getUsers()
             .subscribe(
                 res => {
@@ -42,4 +22,18 @@ export class UsersComponent implements OnInit {
                 null, 
                 () => { this.isLoading = false; });
     }
+
+    deleteUser(user) {
+		if (confirm("Are you sure you want to delete " + user.name + "?")) {
+			var index = this.users.indexOf(user)
+            this.users.splice(index, 1);
+
+			this._userService.deleteUser(user.id)
+				.subscribe(null, 
+					err => {
+						alert("Could not delete the user.");
+						this.users.splice(index, 0, user);
+					});
+		}
+	}
 }

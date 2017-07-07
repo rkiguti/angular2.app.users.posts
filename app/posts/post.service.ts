@@ -4,13 +4,18 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class UsersService {
-    private _url = "https://jsonplaceholder.typicode.com/users";
+export class PostService {
+    private _url = "https://jsonplaceholder.typicode.com/posts";
 
     constructor(private _http: Http){}
     
-    getUsers(){
+    getPosts() {
         return this._http.get(this._url)
+            .map(res => res.json());
+    }
+
+    getPost(id) {
+        return this._http.get(this._url + '/' + id)
             .map(res => res.json());
     }
 }

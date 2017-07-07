@@ -5,10 +5,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { usersRouting } from './users.routing';
 
 import { UsersComponent } from './users.component';
-import { NewUserComponent } from './new-user.component';
+import { UserFormComponent } from './user-form.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, usersRouting ],
-  declarations: [ UsersComponent, NewUserComponent ],
+  declarations: [ UsersComponent, UserFormComponent ],
 })
 export class UsersModule { }

@@ -5,17 +5,19 @@ import { HttpModule } from '@angular/http';
 
 import { routing } from './app.routing';
 
+import { PostsModule } from './posts/posts.module';
 import { UsersModule } from './users/users.module';
 import { PreventUnsavedChangesGuard } from './shared/prevent-unsaved-changes-guard.service';
 
 import { NavbarComponent } from './shared/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { PostsComponent } from './posts/posts.component';
+import { NotFoundComponent } from './shared/notfound.component';
 
 @NgModule({
   imports:      [ 
     BrowserModule, 
     HttpModule,
+    PostsModule,
     UsersModule,
     routing 
   ],
@@ -23,7 +25,7 @@ import { PostsComponent } from './posts/posts.component';
     AppComponent, 
     NavbarComponent,
     HomeComponent, 
-    PostsComponent 
+    NotFoundComponent
   ],
   bootstrap:    [ AppComponent ],
   providers:    [ PreventUnsavedChangesGuard ]

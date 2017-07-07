@@ -1,7 +1,7 @@
 import { Router, RouterModule } from '@angular/router';
 
 import { UsersComponent } from './users.component';
-import { NewUserComponent } from './new-user.component';
+import { UserFormComponent } from './user-form.component';
 import { PreventUnsavedChangesGuard } from '../shared/prevent-unsaved-changes-guard.service';
 
 export const usersRouting = RouterModule.forChild([
@@ -11,7 +11,12 @@ export const usersRouting = RouterModule.forChild([
     },
     { 
         path: 'users/new', 
-        component: NewUserComponent,
+        component: UserFormComponent,
+        canDeactivate: [ PreventUnsavedChangesGuard ]
+    },
+    { 
+        path: 'users/:id', 
+        component: UserFormComponent,
         canDeactivate: [ PreventUnsavedChangesGuard ]
     }
 ]);
