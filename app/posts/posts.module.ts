@@ -1,12 +1,13 @@
 import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule }  from '@angular/common';
 
+import { SharedModule } from '../shared/shared.module';
 import { postsRouting } from './posts.routing';
 
 import { PostsComponent } from './posts.component';
 
 @NgModule({
-  imports:      [ BrowserModule, postsRouting ],
+  imports:      [ CommonModule, SharedModule, postsRouting ],
   declarations: [ PostsComponent ],
 })
 export class PostsModule { }
