@@ -6,8 +6,6 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 
 import { SharedModule } from './shared/shared.module';
-import { PostsModule } from './posts/posts.module';
-import { UsersModule } from './users/users.module';
 import { PreventUnsavedChangesGuard } from './shared/prevent-unsaved-changes-guard.service';
 
 import { NavbarComponent } from './shared/navbar.component';
@@ -19,9 +17,7 @@ import { NotFoundComponent } from './shared/notfound.component';
     BrowserModule, 
     HttpModule,
     SharedModule,
-    PostsModule,
-    UsersModule,
-    routing 
+    routing
   ],
   declarations: [ 
     AppComponent, 

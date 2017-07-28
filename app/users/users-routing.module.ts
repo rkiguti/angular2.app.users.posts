@@ -1,22 +1,33 @@
+import { NgModule } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
 import { UsersComponent } from './users.component';
 import { UserFormComponent } from './user-form.component';
 import { PreventUnsavedChangesGuard } from '../shared/prevent-unsaved-changes-guard.service';
 
-export const usersRouting = RouterModule.forChild([
+const usersRouting = RouterModule.forChild([
     { 
-        path: 'users', 
+        path: '', 
         component: UsersComponent
     },
     { 
-        path: 'users/new', 
+        path: 'new', 
         component: UserFormComponent,
         canDeactivate: [ PreventUnsavedChangesGuard ]
     },
     { 
-        path: 'users/:id', 
+        path: ':id', 
         component: UserFormComponent,
         canDeactivate: [ PreventUnsavedChangesGuard ]
     }
 ]);
+
+@NgModule({
+  imports: [
+    usersRouting
+  ],
+  exports: [
+    RouterModule
+  ]
+})
+export class UsersRoutingModule {}

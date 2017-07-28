@@ -4,7 +4,7 @@ import { PostsComponent } from './posts.component';
 
 export const postsRouting = RouterModule.forChild([
     { 
-        path: 'posts', 
+        path: '', 
         component: PostsComponent
     }
 ]);
